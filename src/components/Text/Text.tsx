@@ -4,9 +4,9 @@ import { color, ColorProps, space, SpaceProps, typography, TypographyProps } fro
 type TextProps = TypographyProps & SpaceProps & ColorProps;
 
 export const Text = styled.p<TextProps>`
-    font-size: 14px;
-    color: #fff;
-    ${color}
-    ${typography}
+  font-size: 14px;
+  color: #fff;
+  ${color}
+  ${typography}
     ${space}
 `;

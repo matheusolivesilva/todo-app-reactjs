@@ -11,7 +11,7 @@ export const Home = () => {
   const [stage, setStage] = useState('ready');
 
   const handleOkButton = () => {
-    if(!taskName) return;
+    if (!taskName) return;
 
     setTasks((previous) => {
       const copy = [...previous];
@@ -31,7 +31,7 @@ export const Home = () => {
     seconds = String(seconds).padStart(2, '0');
 
     return `${minutes}:${seconds}`;
-  }
+  };
 
   const startTimer = () => {
     setStage('in_progress');
@@ -43,7 +43,7 @@ export const Home = () => {
           setTimer(undefined);
           return 0;
         }
-        return previousSeconds - 1
+        return previousSeconds - 1;
       });
     }, 1000);
 
@@ -73,7 +73,7 @@ export const Home = () => {
   const handleStageStatus = useMemo(() => {
     switch (stage) {
       case 'ready':
-        return 'Ready' ;
+        return 'Ready';
 
       case 'in_progress':
         return 'Time to work';
@@ -92,7 +92,9 @@ export const Home = () => {
         return (
           <Fragment>
             <Button variant="primary" onClick={startTimer}>
-              <Text fontSize="bodyExtraLarge" fontWeight="700" color="primary">START</Text>
+              <Text fontSize="bodyExtraLarge" fontWeight="700" color="primary">
+                START
+              </Text>
             </Button>
           </Fragment>
         );
@@ -132,12 +134,13 @@ export const Home = () => {
         return (
           <Fragment>
             <Button variant="primary" onClick={startTimer}>
-              <Text fontSize="bodyExtraLarge" fontWeight="700" color="primary">START</Text>
+              <Text fontSize="bodyExtraLarge" fontWeight="700" color="primary">
+                START
+              </Text>
             </Button>
           </Fragment>
-        )
+        );
     }
-
   }, [handlePauseButton, handleStopButton, handleRestartButton, stage]);
   return (
     <Column width="600px" margin="0 auto">
@@ -145,7 +148,14 @@ export const Home = () => {
         <Logo />
       </Column>
 
-      <Column width="100%" p="20px" minHeight="300px" bg="rgba(255, 255, 255, 0.2)" borderRadius="4px" alignItems="center">
+      <Column
+        width="100%"
+        p="20px"
+        minHeight="300px"
+        bg="rgba(255, 255, 255, 0.2)"
+        borderRadius="4px"
+        alignItems="center"
+      >
         <Text fontFamily="primary" fontSize="bodyExtraLarge">
           {handleStageStatus}
         </Text>
@@ -154,18 +164,24 @@ export const Home = () => {
           {secondsToTime(seconds)}
         </Text>
 
-          {handleStageButtons}
-
+        {handleStageButtons}
       </Column>
 
-      <Text fontWeight="bold" fontSize="bodyLarge" my="10px" pl="10px">Tasks</Text>
+      <Text fontWeight="bold" fontSize="bodyLarge" my="10px" pl="10px">
+        Tasks
+      </Text>
 
       <Row width="100%">
-        <Input flex={1} value={taskName} placeholder="Enter a task name here..." onChange={(e) => setTaskName(e.target.value)}/>
+        <Input
+          flex={1}
+          value={taskName}
+          placeholder="Enter a task name here..."
+          onChange={(e) => setTaskName(e.target.value)}
+        />
         <Button onClick={handleOkButton}>OK</Button>
       </Row>
 
       <List items={tasks} />
     </Column>
-  )
-}
+  );
+};
