@@ -1,3 +1,4 @@
+import React from 'react';
 import { ThemeProvider } from 'styled-components';
 
 const fontSizes: any = [14, 18, 20, 96];

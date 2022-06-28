@@ -1,7 +1,8 @@
 import { BrowserRouter, Redirect, Switch, Route } from 'react-router-dom';
 import { Home } from 'pages';
+import { ReactElement } from 'react';
 
-export const Routes = () => {
+export const Routes = (): ReactElement => {
   return (
     <BrowserRouter>
       <Switch>

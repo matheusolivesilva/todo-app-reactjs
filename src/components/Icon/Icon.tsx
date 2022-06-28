@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useState } from 'react';
 
 type IconProps = {
@@ -9,7 +9,7 @@ export const Icon: React.FC<IconProps> = ({ variant }) => {
   const [iconSrc, setIconSrc] = useState();
 
   useEffect(() => {
-    const mount = async () => {
+    const mount = async (): Promise<void> => {
       const result = await import(`../../../public/${variant}.svg`);
       if (result) {
         setIconSrc(result.default);

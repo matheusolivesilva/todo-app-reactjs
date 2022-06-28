@@ -1,16 +1,16 @@
 import { Input, Text, Button, Row, Column, List, Logo, Icon } from 'components';
-import { Fragment, useCallback, useMemo, useState } from 'react';
+import React, { Fragment, ReactElement, useCallback, useMemo, useState } from 'react';
 
 const SECONDS_DEFAULT = 1500;
 
-export const Home = () => {
+export const Home = (): ReactElement => {
   const [taskName, setTaskName] = useState('');
   const [tasks, setTasks] = useState<{ label: string }[]>([]);
   const [seconds, setSeconds] = useState(SECONDS_DEFAULT);
   const [timer, setTimer] = useState<any>();
   const [stage, setStage] = useState('ready');
 
-  const handleOkButton = () => {
+  const handleOkButton = (): string | void => {
     if (!taskName) return;
 
     setTasks((previous) => {
@@ -21,7 +21,7 @@ export const Home = () => {
     setTaskName('');
   };
 
-  const secondsToTime = (secs: number) => {
+  const secondsToTime = (secs: number): string => {
     const divisorMinutes = secs % 3600;
     let minutes: any = Math.floor(divisorMinutes / 60);
     minutes = String(minutes).padStart(2, '0');
@@ -33,7 +33,7 @@ export const Home = () => {
     return `${minutes}:${seconds}`;
   };
 
-  const startTimer = () => {
+  const startTimer = (): void => {
     setStage('in_progress');
     const timerInterval = setInterval(() => {
       setSeconds((previousSeconds) => {
@@ -176,7 +176,7 @@ export const Home = () => {
           flex={1}
           value={taskName}
           placeholder="Enter a task name here..."
-          onChange={(e) => setTaskName(e.target.value)}
+          onChange={(e): void => setTaskName(e.target.value)}
         />
         <Button onClick={handleOkButton}>OK</Button>
       </Row>
