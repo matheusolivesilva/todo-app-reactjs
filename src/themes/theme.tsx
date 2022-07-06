@@ -14,7 +14,7 @@ const theme = {
   fontSizes,
   fonts: {
     primary: 'Raleway',
-    secondary: 'Roboto',
+    secondary: 'Raleway',
   },
   colors: {
     primary,
