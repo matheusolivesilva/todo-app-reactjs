@@ -169,9 +169,7 @@ export const Home = (): ReactElement => {
         borderRadius="4px"
         alignItems="center"
       >
-        <Text fontSize="bodyExtraLarge">
-          {handleStageStatus}
-        </Text>
+        <Text fontSize="bodyExtraLarge">{handleStageStatus}</Text>
 
         <Text fontSize="displayExtraLarge" fontWeight="bold" py="30px">
           {secondsToTime(seconds)}

@@ -13,5 +13,5 @@ const updateTodo = (id: string, todo: Pick<ITodo, 'task' | 'isDone'>): Promise<A
 export const TodoService = {
   getAllTodos,
   createTodo,
-  updateTodo
+  updateTodo,
 };
